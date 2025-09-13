@@ -2,6 +2,7 @@ package ski.resort.webcam.config;
 
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.annotation.EnableKafka;
@@ -16,6 +17,8 @@ import java.util.Map;
 @Configuration
 public class KafkaConsumerConfig {
 
+    @Value("${kafka.server}")
+    String kafkaServer;
     // 접속하고자 하는 곳에 정보
     @Bean
     public ConsumerFactory<String, String> consumerFactory() {
@@ -24,7 +27,7 @@ public class KafkaConsumerConfig {
         Map<String, Object> properties = new HashMap<>();
 
         // Kafka Broker 위치 저장합니다.
-        properties.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "127.0.0.1:9092");
+        properties.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, kafkaServer);
 
         // Kafka Consumer 그룹의 ID 지정, 같은 그룹 ID를 가진 컨슈머들은 메시지를 공유하여 처리합니다.
         properties.put(ConsumerConfig.GROUP_ID_CONFIG, "consumerGroupId");
