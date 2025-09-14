@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import ski.resort.webcam.entity.LiftEntity;
 import ski.resort.webcam.repository.LiftRepository;
+import ski.resort.webcam.repository.RegionRepository;
 import ski.resort.webcam.repository.SkiResortRepository;
 import ski.resort.webcam.repository.WaitingTimeRepository;
 
@@ -19,6 +20,7 @@ public class SkiResortService {
     private final SkiResortRepository skiResortRepository;
     private final LiftRepository liftRepository;
     private final WaitingTimeRepository waitingTimeRepository;
+    private final RegionRepository regionRepository;
 
     public ResponseEntity<?> findAllResort() {
         return ResponseEntity.ok(skiResortRepository.findAll());
@@ -30,5 +32,9 @@ public class SkiResortService {
             liftEntityList = liftRepository.findByResortId(resortId);
         }
         return ResponseEntity.ok(liftEntityList);
+    }
+
+    public ResponseEntity<?> findRegion() {
+        return ResponseEntity.ok(regionRepository.findAll());
     }
 }

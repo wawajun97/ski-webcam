@@ -28,7 +28,6 @@ public class LiftEntity {
     Integer speed;
     @Column(name = "cam_url")
     String camUrl;
-    @OneToOne
-    @JoinColumn(name = "last_waiting_time_id")
-    private WaitingTimeEntity waitingTime;
+    @Column(name = "last_waiting_time")
+    private Integer waitingTime;
 }

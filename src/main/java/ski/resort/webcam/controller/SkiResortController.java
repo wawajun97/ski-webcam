@@ -23,4 +23,9 @@ public class SkiResortController {
     public ResponseEntity<?> findResortLift(@RequestParam(required = false) Integer resortId) {
         return skiResortService.findResortLift(resortId);
     }
+
+    @GetMapping("/region")
+    public ResponseEntity<?> findRegion() {
+        return skiResortService.findRegion();
+    }
 }
