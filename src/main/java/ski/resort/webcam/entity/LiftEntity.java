@@ -23,9 +23,9 @@ public class LiftEntity {
     @Column(name = "ko_name")
     String koName;
     @Column(name = "seat_cnt")
-    int seatCnt;
+    Integer seatCnt;
     @Column(name = "speed")
-    int speed;
+    Integer speed;
     @Column(name = "cam_url")
     String camUrl;
     @OneToOne

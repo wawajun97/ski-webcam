@@ -20,7 +20,7 @@ public class SkiResortController {
     }
 
     @GetMapping("/resort/lift")
-    public ResponseEntity<?> findResortLift(@RequestParam int resortId) {
+    public ResponseEntity<?> findResortLift(@RequestParam(required = false) Integer resortId) {
         return skiResortService.findResortLift(resortId);
     }
 }

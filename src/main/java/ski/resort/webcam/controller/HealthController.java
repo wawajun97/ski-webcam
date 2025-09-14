@@ -11,9 +11,8 @@ import java.util.Map;
 @RestController
 @Slf4j
 public class HealthController {
-    @PostMapping("/health")
-    public String health(@RequestBody Map<String,String> map) {
-        log.info("map : {}", map);
+    @GetMapping("/health")
+    public String health() {
         return "OK";
     }
 }

@@ -9,6 +9,7 @@ import ski.resort.webcam.repository.LiftRepository;
 import ski.resort.webcam.repository.SkiResortRepository;
 import ski.resort.webcam.repository.WaitingTimeRepository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -23,8 +24,11 @@ public class SkiResortService {
         return ResponseEntity.ok(skiResortRepository.findAll());
     }
 
-    public ResponseEntity<?> findResortLift(int resortId) {
-        List<LiftEntity> liftEntityList = liftRepository.findByResortId(resortId);
+    public ResponseEntity<?> findResortLift(Integer resortId) {
+        List<LiftEntity> liftEntityList = new ArrayList<>();
+        if(resortId != null) {
+            liftEntityList = liftRepository.findByResortId(resortId);
+        }
         return ResponseEntity.ok(liftEntityList);
     }
 }

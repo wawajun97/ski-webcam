@@ -20,7 +20,7 @@ public class SkiResortEntity {
     String enName;
     @Column(name = "ko_name")
     String koName;
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "region_id")
     private RegionEntity region;
 }
