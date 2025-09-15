@@ -29,8 +29,8 @@ public class KafkaConsumerConfig {
         // Kafka Broker 위치 저장합니다.
         properties.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, kafkaServer);
 
-        // Kafka Consumer 그룹의 ID 지정, 같은 그룹 ID를 가진 컨슈머들은 메시지를 공유하여 처리합니다.
-        properties.put(ConsumerConfig.GROUP_ID_CONFIG, "consumerGroupId");
+        // Kafka Consumer 그룹의 ID 지정, 같은 그룹 ID를 가진 컨슈머들은 메시지를 공유하여 처리합니다.-> 하나의 컨슈머만 데이터를 처리
+        properties.put(ConsumerConfig.GROUP_ID_CONFIG, "waitTimeGroup");
 
         // Kafka 메시지의 키, 값을 어떻게 역직렬화 할지 설정합니다.
         properties.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
